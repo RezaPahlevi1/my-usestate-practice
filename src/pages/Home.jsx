@@ -4,12 +4,16 @@ import { useState } from "react";
 function Home() {
   const [count, setCount] = useState(0);
   const [like, setLike] = useState(false);
+  const [text, setText] = useState(false);
   //test change
   function handleLike() {
     setLike(!like);
   }
   function handleClick() {
     setCount(count + 1);
+    if (count >= 100) {
+      setText(true);
+    }
   }
 
   return (
@@ -25,6 +29,11 @@ function Home() {
           Jumlah klik {count}. Angka ini adalah:{" "}
           {count % 2 == 0 ? "Genap" : "Ganjil"}
         </p>
+        <div>
+          {text
+            ? "Selamat anda telah membuang waktu anda dengan melakukan hal tidak berguna seperti melihat apakah 100 itu adalah angka ganjil atau genap"
+            : ""}
+        </div>
         <div className="flex flex-row gap-5 justify-center items-center mt-10">
           <button
             onClick={handleLike}

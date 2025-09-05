@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NavBar from "./components/navbar";
 import ToDoList from "./pages/ToDoList";
+import DateCounter from "./pages/DateCounter";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/todolist" element={<ToDoList />} />
+            <Route path="/datecounter" element={<DateCounter />} />
           </Routes>
         </main>
       </div>

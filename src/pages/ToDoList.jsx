@@ -5,6 +5,7 @@ function ToDoList() {
   const [list, setList] = useState([]);
   const [input, setInput] = useState("");
   const [showModal, setShowModal] = useState(false);
+
   function handlerDelete(index) {
     const newList = list.filter((item, i) => i !== index);
     setList(newList);
@@ -45,19 +46,26 @@ function ToDoList() {
           </h2>
           <div className="flex flex-col gap-3">
             {list.map((item, index) => (
-              <div
-                key={index}
-                className="flex justify-between items-center bg-gray-50 rounded-lg px-4 py-2 shadow-sm"
-              >
-                <p className="text-gray-800">{item}</p>
-                <button
-                  className="bg-red-500 hover:bg-red-600 text-white text-sm font-semibold px-3 py-1 rounded-md cursor-pointer shadow"
-                  onClick={() => handlerDelete(index)}
+              <>
+                <div
+                  key={index}
+                  className="flex justify-between items-center bg-gray-50 rounded-lg px-4 py-2 shadow-sm"
                 >
-                  Delete
-                </button>
-              </div>
+                  <p className="text-gray-800">{item}</p>
+                  <button
+                    className="bg-red-500 hover:bg-red-600 text-white text-sm font-semibold px-3 py-1 rounded-md cursor-pointer shadow"
+                    onClick={() => handlerDelete(index)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </>
             ))}
+            <div className="">
+              <p className="text-sm font-medium opacity-50">
+                Jumlah List: {list.length}
+              </p>
+            </div>
             {list.length === 0 && (
               <p className="text-gray-500 italic text-sm">Belum ada item...</p>
             )}

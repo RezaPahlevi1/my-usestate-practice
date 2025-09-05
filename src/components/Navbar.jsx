@@ -19,8 +19,8 @@ function Navbar() {
           <NavLink to="/todolist" className={linkClass}>
             To Do List
           </NavLink>
-          <NavLink to="/halaman3" className={linkClass}>
-            Halaman 3
+          <NavLink to="/datecounter" className={linkClass}>
+            Date Counter
           </NavLink>
         </nav>
       </div>
