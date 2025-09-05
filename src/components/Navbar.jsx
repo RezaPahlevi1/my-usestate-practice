@@ -16,8 +16,8 @@ function Navbar() {
           <NavLink to="/" className={linkClass}>
             Home
           </NavLink>
-          <NavLink to="/halaman2" className={linkClass}>
-            Halaman 2
+          <NavLink to="/todolist" className={linkClass}>
+            To Do List
           </NavLink>
           <NavLink to="/halaman3" className={linkClass}>
             Halaman 3
