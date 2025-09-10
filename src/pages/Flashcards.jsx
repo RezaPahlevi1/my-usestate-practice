@@ -44,6 +44,9 @@ function Flashcards() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <h1 className="text-3xl font-bold text-blue-600 mb-6 col-span-full">
+        Click On Us!
+      </h1>
       {questions.map((q) => (
         <div
           key={q.id}

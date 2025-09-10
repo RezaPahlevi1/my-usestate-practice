@@ -19,6 +19,10 @@ function ToDoList() {
     setList([...list, input]);
     setInput("");
   }
+
+  function handleReset() {
+    setList([]);
+  }
   return (
     <>
       <div className="w-full flex flex-col items-center justify-start min-h-scree py-10">
@@ -66,8 +70,15 @@ function ToDoList() {
                 Jumlah List: {list.length}
               </p>
             </div>
-            {list.length === 0 && (
+            {list.length === 0 ? (
               <p className="text-gray-500 italic text-sm">Belum ada item...</p>
+            ) : (
+              <button
+                className="bg-red-500 hover:bg-red-600 text-white text-sm font-semibold px-3 py-2 rounded-md cursor-pointer shadow"
+                onClick={handleReset}
+              >
+                Delete All
+              </button>
             )}
           </div>
         </div>
