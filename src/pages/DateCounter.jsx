@@ -21,7 +21,7 @@ function DateCounter() {
   const date = new Date();
   date.setDate(date.getDate() + count);
   return (
-    <div className="w-full flex flex-col items-center justify-start min-h-scree py-10 ">
+    <div className="w-full flex flex-col items-center justify-start min-h-screen py-10 ">
       <h1 className="text-3xl font-bold text-blue-600 mb-6">Date Counter</h1>
       <div className="p-5">
         <p className="font-semibold">Step: {step}</p>

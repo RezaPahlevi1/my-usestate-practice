@@ -50,7 +50,7 @@ function Flashcards() {
           className={
             q.id === selectedId
               ? "p-10 bg-red-500 text-white font-semibold rounded-lg shadow-md cursor-pointer"
-              : "p-10 bg-teal-300 cursor-pointer text-black font-semibold rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              : "p-10 h-42 bg-teal-300 cursor-pointer text-black font-semibold rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
           }
           onClick={() => handleClick(q.id)}
         >

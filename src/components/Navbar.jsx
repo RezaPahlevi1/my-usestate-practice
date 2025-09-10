@@ -29,6 +29,9 @@ function Navbar() {
         <NavLink to="/datecounter" className={linkClass}>
           Date Counter
         </NavLink>
+        <NavLink to="/datecounterv2" className={linkClass}>
+          Date Counter V2
+        </NavLink>
         <NavLink to="/flashcards" className={linkClass}>
           Flashcards
         </NavLink>

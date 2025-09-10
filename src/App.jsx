@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/navbar";
 import ToDoList from "./pages/ToDoList";
 import DateCounter from "./pages/DateCounter";
+import DateCounterV2 from "./pages/DateCounterV2";
 import Flashcards from "./pages/Flashcards";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/todolist" element={<ToDoList />} />
           <Route path="/datecounter" element={<DateCounter />} />
+          <Route path="/datecounterv2" element={<DateCounterV2 />} />
           <Route path="/flashcards" element={<Flashcards />} />
         </Routes>
       </div>
