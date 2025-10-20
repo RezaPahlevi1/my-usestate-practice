@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useReducer } from "react";
+import { Button } from "../components/Button";
 
 function DateCounter() {
   const [count, setCount] = useState(0);
@@ -25,41 +26,28 @@ function DateCounter() {
       <h1 className="text-3xl font-bold text-blue-600 mb-6">Date Counter</h1>
       <div className="p-5">
         <p className="font-semibold">Step: {step}</p>
-        <button
-          className="bg-red-400 p-2 rounded-lg text-white mr-5 cursor-pointer"
-          onClick={handleStepMinus}
-        >
-          Kurang
-        </button>
-        <span className="text-2xl font-bold">{step}</span>
-        <button
-          className="bg-green-400 p-2 rounded-lg text-white ml-5 cursor-pointer"
-          onClick={handleStepAdd}
-        >
-          Tambah
-        </button>
+        <div className="p-5 flex flex-row gap-5">
+          <Button variant="decrement" onClick={handleStepMinus}>
+            -
+          </Button>
+          <span className="text-2xl font-bold">{step}</span>
+          <Button variant="increment" onClick={handleStepAdd}>
+            +
+          </Button>
+        </div>
       </div>
-      <div className="p-5">
-        <button
-          className="bg-red-400 p-2 rounded-lg text-white mr-5 cursor-pointer"
-          onClick={handleMinus}
-        >
-          Kurang
-        </button>
+      <div className="p-5 flex flex-row gap-5">
+        <Button variant="decrement" onClick={handleMinus}>
+          -
+        </Button>
         <span className="text-2xl font-bold">{count}</span>
-        <button
-          className="bg-green-400 p-2 rounded-lg text-white ml-5 cursor-pointer"
-          onClick={handleAdd}
-        >
-          Tambah
-        </button>
+        <Button variant="increment" onClick={handleAdd}>
+          +
+        </Button>
       </div>
-      <button
-        className="bg-blue-400 p-2 rounded-lg text-white cursor-pointer"
-        onClick={() => setCount(0)}
-      >
+      <Button variant="reset" onClick={() => setCount(0)}>
         Reset
-      </button>
+      </Button>
       <span>
         Hari ini {count} hari dari {date.toDateString()}
       </span>
