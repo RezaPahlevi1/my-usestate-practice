@@ -1,22 +1,39 @@
 import React from "react";
-import { useState, useReducer } from "react";
+import { useReducer } from "react";
 import { Button } from "../components/Button";
 
-function DateCounter() {
-  const [count, setCount] = useState(0);
-  const [step, setStep] = useState(1);
-
-  function handleAdd() {
-    setCount(count + step);
+const initialState = { count: 0, step: 1 };
+function reducer(state, action) {
+  switch (action.type) {
+    case "inc":
+      return { ...state, count: state.count + state.step };
+    case "dec":
+      return { ...state, count: state.count - state.step };
+    case "incStep":
+      return { ...state, step: state.step + 1 };
+    case "decStep":
+      return { ...state, step: state.step - 1 };
+    case "reset":
+      return initialState;
+    default:
+      return state;
   }
-  function handleMinus() {
-    setCount(count - step);
+}
+
+function DateCounter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { count, step } = state;
+  function handleInc() {
+    dispatch({ type: "inc" });
+  }
+  function handleDec() {
+    dispatch({ type: "dec" });
   }
   function handleStepAdd() {
-    setStep(step + 1);
+    dispatch({ type: "incStep" });
   }
   function handleStepMinus() {
-    setStep(step - 1);
+    dispatch({ type: "decStep" });
   }
 
   const date = new Date();
@@ -37,15 +54,15 @@ function DateCounter() {
         </div>
       </div>
       <div className="p-5 flex flex-row gap-5">
-        <Button variant="decrement" onClick={handleMinus}>
+        <Button variant="decrement" onClick={handleDec}>
           -
         </Button>
         <span className="text-2xl font-bold">{count}</span>
-        <Button variant="increment" onClick={handleAdd}>
+        <Button variant="increment" onClick={handleInc}>
           +
         </Button>
       </div>
-      <Button variant="reset" onClick={() => setCount(0)}>
+      <Button variant="reset" onClick={() => dispatch({ type: "reset" })}>
         Reset
       </Button>
       <span>
